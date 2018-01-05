@@ -1,6 +1,6 @@
 <?php 
 
-namespace Pozpom\MemcachedCloud;
+namespace bigsweater\MemcachedCloud;
 use Memcached;
 
 class MemcachedCloudConnector {

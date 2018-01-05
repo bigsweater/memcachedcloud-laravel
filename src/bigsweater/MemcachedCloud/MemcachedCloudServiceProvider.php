@@ -1,6 +1,6 @@
 <?php 
 
-namespace kintso\MemcachedCloud;
+namespace bigsweater\MemcachedCloud;
 use Illuminate\Support\ServiceProvider;
 
 // Based on https://github.com/atyagi/elasticache-laravel
@@ -25,7 +25,7 @@ class MemcachedCloudServiceProvider extends ServiceProvider {
             $memcachedCloud = new MemcachedCloudConnector();
             $memcached = $memcachedCloud->connect($servers);
 
-            $this->app->getProviderRepository()->load($this->app, array('Illuminate\Cache\CacheServiceProvider'));
+            $this->app->register('Illuminate\Cache\CacheServiceProvider');
 
             $this->app->make('cache')->extend('memcached', function() use ($memcached) {
                 /** @noinspection PhpUndefinedNamespaceInspection */
